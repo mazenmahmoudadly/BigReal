@@ -146,43 +146,6 @@ string subraction(string num1, string num2){
     }
     return res;
 }
-// string subraction(string num1, string num2)
-// {
-    
-//     int index;
-//     if(num1.size()>=num2.size()){
-//         index=num1.find('.');
-//     }
-//     else{
-//         index=num2.find('.');
-//     }
-//     num1.erase(remove(num1.begin(),num1.end(),'.'),num1.end());
-//     num2.erase(remove(num2.begin(),num2.end(),'.'),num2.end());
-//         deque<long long>d;
-//     string res;
-
-//     for (long long i = num1.length() - 1; i >= 0; i--)
-//     {
-//         if (num1[i] < num2[i])
-//         {
-//             num1[i] = char (((num1[i] - '0') + 10) + '0');
-//             num1[i - 1] = char (((num1[i - 1] - '0') - 1) + '0');
-//             d.push_front((num1[i] - '0') - (num2[i] - '0'));
-//         }
-//         else
-//         {
-//             d.push_front((num1[i] - '0') - (num2[i] - '0'));
-//         }
-//     }
-
-//     for (auto i : d)
-//     {
-//         res += to_string(i);
-//     }
-//     res.insert(index,".");
-//     return res;
-   
-// }
 
 
 string addition(string num1,string num2){

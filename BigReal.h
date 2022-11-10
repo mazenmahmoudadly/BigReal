@@ -8,8 +8,7 @@ class BigReal{
     private:
         string number;
         char sign{};
-        string num;
-        string fraction;
+
         static bool checkValidInput(const string& input);
     public:
         friend ostream &operator << (ostream &out, const BigReal& num);

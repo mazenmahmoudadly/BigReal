@@ -1,46 +1,53 @@
-#include"BigReal.h"
-void makeEqualAtFront(deque<int>& A,
-                      deque<int>& B)
+#include "BigReal.h"
+void makeEqualAtFront(deque<int> &A,
+                      deque<int> &B)
 {
     int n = A.size();
     int m = B.size();
     int diff = abs(n - m);
 
-    if (n < m) {
-        for (int i = 0; i < diff; i++) {
+    if (n < m)
+    {
+        for (int i = 0; i < diff; i++)
+        {
             A.insert(A.begin(), 0);
         }
     }
-    else {
-        for (int i = 0; i < diff; i++) {
+    else
+    {
+        for (int i = 0; i < diff; i++)
+        {
             B.insert(B.begin(), 0);
         }
     }
 }
 
-
-void makeEqualAtback(deque<int>& A,
-                     deque<int>& B)
+void makeEqualAtback(deque<int> &A,
+                     deque<int> &B)
 {
     int n = A.size();
     int m = B.size();
     int diff = abs(n - m);
 
-    if (n < m) {
-        for (int i = 0; i < diff; i++) {
+    if (n < m)
+    {
+        for (int i = 0; i < diff; i++)
+        {
             A.push_back(0);
         }
     }
-    else {
-        for (int i = 0; i < diff; i++) {
+    else
+    {
+        for (int i = 0; i < diff; i++)
+        {
             B.push_back(0);
         }
     }
 }
 
-
 // Function for find difference of larger numbers
-string subraction(string num1, string num2){
+string subraction(string num1, string num2)
+{
     int i;
     string res;
     // To store the integer and
@@ -50,33 +57,39 @@ string subraction(string num1, string num2){
 
     // Separating integer and
     // fractional part of num1
-    for (i = num1.length() - 1; i > -1; i--) {
+    for (i = num1.length() - 1; i > -1; i--)
+    {
 
         // If decimal occurs break
-        if (num1[i] == '.') {
+        if (num1[i] == '.')
+        {
             break;
         }
         Fracs1.push_back(num1[i] - '0');
     }
 
     i--;
-    for (; i > -1; i--) {
+    for (; i > -1; i--)
+    {
         Ints1.push_back(num1[i] - '0');
     }
 
     // Separating integer and
     // fractional part of num2
-    for (i = num2.length() - 1; i > -1; i--) {
+    for (i = num2.length() - 1; i > -1; i--)
+    {
 
         // If decimal occurs break
-        if (num2[i] == '.') {
+        if (num2[i] == '.')
+        {
             break;
         }
         Fracs2.push_back(num2[i] - '0');
     }
 
     i--;
-    for (; i > -1; i--) {
+    for (; i > -1; i--)
+    {
         Ints2.push_back(num2[i] - '0');
     }
 
@@ -93,19 +106,20 @@ string subraction(string num1, string num2){
     i = 0;
     int carry = 0;
 
-    while (i < n && i < m) {
+    while (i < n && i < m)
+    {
 
         // Traverse the Fracs1[] and
         // Fracs2[] and add the digit
         // and store the carry
-        int sum = Fracs1[i]
-                  - Fracs2[i]
-                  + carry;
-        if(sum<0){
-            carry=-1;
-            Fracs1[i]=(10+sum)%10;
+        int sum = Fracs1[i] - Fracs2[i] + carry;
+        if (sum < 0)
+        {
+            carry = -1;
+            Fracs1[i] = (10 + sum) % 10;
         }
-        else{
+        else
+        {
             Fracs1[i] = sum % 10;
             carry = sum / 10;
         }
@@ -118,15 +132,16 @@ string subraction(string num1, string num2){
 
     // Adding integer part of
     // num1 and num2
-    while (i < N && i < M) {
-        int sum = Ints1[i]
-                  - Ints2[i]
-                  + carry;
-        if(sum<0){
-            carry=-(1);
-            Ints1[i]=(10+sum)%10;
+    while (i < N && i < M)
+    {
+        int sum = Ints1[i] - Ints2[i] + carry;
+        if (sum < 0)
+        {
+            carry = -(1);
+            Ints1[i] = (10 + sum) % 10;
         }
-        else{
+        else
+        {
             Ints1[i] = sum % 10;
             carry = sum / 10;
         }
@@ -137,18 +152,20 @@ string subraction(string num1, string num2){
     // Integer and decimal part stored
     // in Ints1[] and Fracs1[]
 
-    for (int i = Ints1.size() - 1; i > -1; i--) {
-        res+=to_string( Ints1[i]);
+    for (int i = Ints1.size() - 1; i > -1; i--)
+    {
+        res += to_string(Ints1[i]);
     }
-    res+='.';
-    for (int i = Fracs1.size() - 1; i > -1; i--) {
-        res+=to_string(Fracs1[i]);
+    res += '.';
+    for (int i = Fracs1.size() - 1; i > -1; i--)
+    {
+        res += to_string(Fracs1[i]);
     }
     return res;
 }
 
-
-string addition(string num1,string num2){
+string addition(string num1, string num2)
+{
     int i;
     string res;
     // To store the integer and
@@ -158,33 +175,39 @@ string addition(string num1,string num2){
 
     // Separating integer and
     // fractional part of num1
-    for (i = num1.length() - 1; i > -1; i--) {
+    for (i = num1.length() - 1; i > -1; i--)
+    {
 
         // If decimal occurs break
-        if (num1[i] == '.') {
+        if (num1[i] == '.')
+        {
             break;
         }
         Fracs1.push_back(num1[i] - '0');
     }
 
     i--;
-    for (; i > -1; i--) {
+    for (; i > -1; i--)
+    {
         Ints1.push_back(num1[i] - '0');
     }
 
     // Separating integer and
     // fractional part of num2
-    for (i = num2.length() - 1; i > -1; i--) {
+    for (i = num2.length() - 1; i > -1; i--)
+    {
 
         // If decimal occurs break
-        if (num2[i] == '.') {
+        if (num2[i] == '.')
+        {
             break;
         }
         Fracs2.push_back(num2[i] - '0');
     }
 
     i--;
-    for (; i > -1; i--) {
+    for (; i > -1; i--)
+    {
         Ints2.push_back(num2[i] - '0');
     }
 
@@ -201,14 +224,13 @@ string addition(string num1,string num2){
     i = 0;
     int carry = 0;
 
-    while (i < n && i < m) {
+    while (i < n && i < m)
+    {
 
         // Traverse the Fracs1[] and
         // Fracs2[] and add the digit
         // and store the carry
-        int sum = Fracs1[i]
-                  + Fracs2[i]
-                  + carry;
+        int sum = Fracs1[i] + Fracs2[i] + carry;
 
         Fracs1[i] = sum % 10;
         carry = sum / 10;
@@ -221,10 +243,9 @@ string addition(string num1,string num2){
 
     // Adding integer part of
     // num1 and num2
-    while (i < N && i < M) {
-        int sum = Ints1[i]
-                  + Ints2[i]
-                  + carry;
+    while (i < N && i < M)
+    {
+        int sum = Ints1[i] + Ints2[i] + carry;
         Ints1[i] = sum % 10;
         carry = sum / 10;
         i++;
@@ -236,73 +257,79 @@ string addition(string num1,string num2){
     // Integer and decimal part stored
     // in Ints1[] and Fracs1[]
 
-    for (int i = Ints1.size() - 1; i > -1; i--) {
-        res+=to_string( Ints1[i]);
+    for (int i = Ints1.size() - 1; i > -1; i--)
+    {
+        res += to_string(Ints1[i]);
     }
-    res+='.';
-    for (int i = Fracs1.size() - 1; i > -1; i--) {
-        res+=to_string(Fracs1[i]);
+    res += '.';
+    for (int i = Fracs1.size() - 1; i > -1; i--)
+    {
+        res += to_string(Fracs1[i]);
     }
     return res;
 }
 
-
-void BigReal::setNumber(const string& numb){
-    bool validNumber=checkValidInput(numb);
-    if(validNumber){
-        number=numb;
-        if(number[0]=='+'){
-            number.erase(0,1);
-            sign='+';
+void BigReal::setNumber(const string &numb)
+{
+    bool validNumber = checkValidInput(numb);
+    if (validNumber)
+    {
+        number = numb;
+        if (number[0] == '+')
+        {
+            number.erase(0, 1);
+            sign = '+';
         }
-        else if(number[0]=='-'){
-            number.erase(0,1);
-            sign='-';
+        else if (number[0] == '-')
+        {
+            number.erase(0, 1);
+            sign = '-';
         }
-        else{
-            sign='+';
+        else
+        {
+            sign = '+';
         }
     }
-    else{
-        cout<<"invalid"<<endl;
+    else
+    {
+        cout << "invalid" << endl;
         exit(1);
     }
 }
 
-
-bool BigReal::checkValidInput(const string& input){
+bool BigReal::checkValidInput(const string &input)
+{
     regex validInput("[+-]?([0-9]*[.])?[0-9]+");
     return regex_match(input, validInput);
 }
 
-
-ostream &operator << (ostream &out, const BigReal& num)
+ostream &operator<<(ostream &out, const BigReal &num)
 {
-    if(num.sign == '+')
+    if (num.sign == '+')
     {
-        out << num.number ;
+        out << num.number;
     }
     else
     {
-        if(num.number == "0")
+        if (num.number == "0")
         {
-            out << num.number ;
+            out << num.number;
         }
         else
         {
-            out << num.sign << num.number ;
+            out << num.sign << num.number;
         }
     }
     return out;
 }
 
-
-BigReal BigReal:: operator-(BigReal number2){
+BigReal BigReal::operator-(BigReal number2)
+{
     string strmin = "", res = "";
     string num1 = number, num2 = number2.number;
     char sign1 = sign, sign2 = number2.sign;
     BigReal result;
-    result.number = subraction(num1,num2);
+    result.number = subraction(num1, num2);
 
     bool ok = false, is_determined = false;
     if (num1 < num2)
@@ -312,16 +339,17 @@ BigReal BigReal:: operator-(BigReal number2){
         ok = true;
     }
 
-    if (sign1 == sign2 )
+    if (sign1 == sign2)
     {
-        res = subraction(num1,num2);
+        res = subraction(num1, num2);
 
-        if(sign1=='-')ok = !ok;
+        if (sign1 == '-')
+            ok = !ok;
     }
     else
     {
-        res = addition(num1,num2);
-        if(sign == '-')
+        res = addition(num1, num2);
+        if (sign == '-')
         {
             result.sign = '-';
             is_determined = true;
@@ -331,7 +359,6 @@ BigReal BigReal:: operator-(BigReal number2){
             result.sign = '+';
             is_determined = true;
         }
-
     }
 
     bool right = false;
@@ -348,179 +375,220 @@ BigReal BigReal:: operator-(BigReal number2){
         }
     }
 
-    if(res.empty()) res = "0";
+    if (res.empty())
+        res = "0";
     if (!is_determined && (ok))
     {
         result.sign = '-';
     }
-    else if(!is_determined)
+    else if (!is_determined)
     {
         result.sign = '+';
     }
 
     result.number = res;
     return result;
-    return result;
-
-
+    
 }
 
-
-BigReal BigReal:: operator+(BigReal number2){
+BigReal BigReal::operator+(BigReal number2)
+{
     char signNumber1 = sign, signNumber2 = number2.sign;
     string num1 = number, num2 = number2.number;
     BigReal number1 = *this;
     BigReal result;
 
-    while (num1.length() < num2.length()){
+    while (num1.length() < num2.length())
+    {
         num1 = '0' + num1;
     }
-    while (num2.length() < num1.length()){
+    while (num2.length() < num1.length())
+    {
         num2 = '0' + num2;
     }
 
-    if (signNumber1 == signNumber2){
+    if (signNumber1 == signNumber2)
+    {
         result.sign = signNumber1;
-        result.number = addition(num1,num2);
+        result.number = addition(num1, num2);
+    }
+    else
+    {
 
-    }else{
-
-        if(number1.sign == '-')
+        if (number1.sign == '-')
         {
             number1.sign = '+';
             result = (number2 - number1);
         }
-        else{
+        else
+        {
             number2.sign = '+';
             result = (number1 - number2);
         }
     }
     return result;
-
 }
 
-BigReal:: BigReal(string num){
+BigReal::BigReal(string num)
+{
     setNumber(num);
-    int i=0;
-    if(num[0]=='-'){
-        sign='-';
+    int i = 0;
+    if (num[0] == '-')
+    {
+        sign = '-';
         i++;
     }
-    else if (num[0]=='+'){
-        sign='+';
+    else if (num[0] == '+')
+    {
+        sign = '+';
         i++;
     }
-    else {
-        sign='+';
+    else
+    {
+        sign = '+';
     }
-    for (; i <  num.length(); i++) {
+    for (; i < num.length(); i++)
+    {
 
         // If decimal occurs break
-        if (num[i] == '.') {
+        if (num[i] == '.')
+        {
             break;
         }
-        whole.push_back(num[i] );
+        whole.push_back(num[i]);
     }
 
     i++;
-    for (; i  <  num.length(); i++) {
-        fraction.push_back(num[i] );
+    for (; i < num.length(); i++)
+    {
+        fraction.push_back(num[i]);
     }
-    //cout << whole << " " << fraction << " " ;
+    // cout << whole << " " << fraction << " " ;
 }
-bool BigReal:: operator< (BigReal anotherReal){
-    if(this ->sign!=anotherReal.sign ){
-        if(this -> sign=='-'){
+bool BigReal::operator<(BigReal anotherReal)
+{
+    if (this->sign != anotherReal.sign)
+    {
+        if (this->sign == '-')
+        {
             return true;
         }
         else
-            return false ;
+            return false;
     }
-    else if (this -> sign == '+'){
-        if(this -> whole < anotherReal.whole){
+    else if (this->sign == '+')
+    {
+        if (this->whole < anotherReal.whole)
+        {
             return true;
         }
-        else if (this -> whole > anotherReal.whole){
+        else if (this->whole > anotherReal.whole)
+        {
             return false;
         }
-        else if (this -> whole == anotherReal.whole){
-            if(this -> fraction<anotherReal.fraction){
+        else if (this->whole == anotherReal.whole)
+        {
+            if (this->fraction < anotherReal.fraction)
+            {
                 return true;
             }
             else
-                return false ;
+                return false;
         }
     }
-    else if (this -> sign == '-'){
-        if(this -> whole > anotherReal.whole){
+    else if (this->sign == '-')
+    {
+        if (this->whole > anotherReal.whole)
+        {
             return true;
         }
-        else if (this -> whole < anotherReal.whole){
+        else if (this->whole < anotherReal.whole)
+        {
             return false;
         }
-        else if (this -> whole == anotherReal.whole){
-            if(this -> fraction > anotherReal.fraction){
+        else if (this->whole == anotherReal.whole)
+        {
+            if (this->fraction > anotherReal.fraction)
+            {
                 return true;
             }
             else
-                return false ;
+                return false;
         }
     }
 }
-bool BigReal:: operator> (BigReal anotherReal){
-    if(this ->sign!=anotherReal.sign ){
-        if(this -> sign=='+'){
+bool BigReal::operator>(BigReal anotherReal)
+{
+    if (this->sign != anotherReal.sign)
+    {
+        if (this->sign == '+')
+        {
             return true;
         }
         else
-            return false ;
+            return false;
     }
-    else if (this -> sign == '+'){
-        if(this -> whole > anotherReal.whole){
+    else if (this->sign == '+')
+    {
+        if (this->whole > anotherReal.whole)
+        {
             return true;
         }
-        else if (this -> whole < anotherReal.whole){
+        else if (this->whole < anotherReal.whole)
+        {
             return false;
         }
-        else if (this -> whole == anotherReal.whole){
-            if(this -> fraction>anotherReal.fraction){
+        else if (this->whole == anotherReal.whole)
+        {
+            if (this->fraction > anotherReal.fraction)
+            {
                 return true;
             }
             else
-                return false ;
+                return false;
         }
     }
-    else if (this -> sign == '-'){
-        if(this -> whole < anotherReal.whole){
+    else if (this->sign == '-')
+    {
+        if (this->whole < anotherReal.whole)
+        {
             return true;
         }
-        else if (this -> whole > anotherReal.whole){
+        else if (this->whole > anotherReal.whole)
+        {
             return false;
         }
-        else if (this -> whole == anotherReal.whole){
-            if(this -> fraction < anotherReal.fraction){
+        else if (this->whole == anotherReal.whole)
+        {
+            if (this->fraction < anotherReal.fraction)
+            {
                 return true;
             }
             else
-                return false ;
+                return false;
         }
     }
 }
-char BigReal:: Sign(){
+char BigReal::Sign()
+{
     return sign;
 }
-int BigReal::Size(){
-    return fraction.length()+whole.length();
+int BigReal::Size()
+{
+    return fraction.length() + whole.length();
 }
-bool BigReal:: operator== (BigReal anotherReal){
-    if(this -> sign==anotherReal.sign&&this -> whole==anotherReal.whole&&this -> fraction== anotherReal.fraction){
+bool BigReal::operator==(BigReal anotherReal)
+{
+    if (this->sign == anotherReal.sign && this->whole == anotherReal.whole && this->fraction == anotherReal.fraction)
+    {
         return true;
     }
 }
-istream& operator >> (istream& in, BigReal &num){
-    string s ;
-    in>> s ;
-    BigReal temp (s);
-    num=temp;
+istream &operator>>(istream &in, BigReal &num)
+{
+    string s;
+    in >> s;
+    BigReal temp(s);
+    num = temp;
     return in;
 }
